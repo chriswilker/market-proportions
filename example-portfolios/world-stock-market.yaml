@@ -1,0 +1,10 @@
+"us stocks":
+  "date": 20170731
+  "market cap": 25089806
+  "ticker": "VTSAX"
+  "close price": 61.70
+"non-us stocks":
+  "date": 20170731
+  "market cap": 20585441
+  "ticker": "VTIAX"
+  "close price": 28.84
