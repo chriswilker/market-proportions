@@ -20,11 +20,8 @@ def main() -> None:
     args = parser.parse_args()
 
     with open(args.portfolio_file, "r") as stream:
-        try:
-            portfolio = yaml.safe_load(stream)
-            print(market_proportions_output(portfolio), end="")
-        except yaml.YAMLError as e:
-            print(e)
+        portfolio = yaml.safe_load(stream)
+        print(output(portfolio), end="")
 
 
 def output(portfolio: Dict) -> str:
