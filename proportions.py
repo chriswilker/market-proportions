@@ -13,7 +13,9 @@ def main() -> None:
         """
     )
     parser.add_argument(
-        "portfolio_file", type=str, help="yaml file representing a portfolio"
+        "portfolio_file",
+        type=str,
+        help="path to a yaml file representing a portfolio",
     )
     args = parser.parse_args()
 
