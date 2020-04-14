@@ -25,14 +25,14 @@ def main() -> None:
             print(e)
 
 
-def market_proportions_output(portfolio: Dict) -> str:
+def output(portfolio: Dict) -> str:
     mps = market_proportions(portfolio)
-    output = ""
+    out = ""
     for asset in mps.keys():
         mp = mps[asset]
         market_percent = mp * 100
-        output += f"{asset}: {market_percent:.2f}%\n"
-    return output
+        out += f"{asset}: {market_percent:.2f}%\n"
+    return out
 
 
 def market_proportions(portfolio: Dict) -> Dict:
