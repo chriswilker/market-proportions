@@ -9,7 +9,7 @@ import dateutil.parser
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="""Estimate the current market proportions of assets in a
-        portfolio. See https://github.com/chriswilker/market_proportions for
+        portfolio. See https://github.com/chriswilker/market-proportions for
         more information.
         """
     )

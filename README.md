@@ -1,18 +1,18 @@
-# Market Proportions
 ## Introduction
-Market proportions finds the current market proportions of assets in a
-portfolio. These assets need to be tracked by stocks or ETFs and to have
-a known market capitalization at some prior date.
+This is a script that estimates the current market proportions of assets
+in a portfolio. These assets need to be tracked by stocks or ETFs and to
+have a known market capitalization at some prior date.
 
 For example, the total US stock market is tracked by multiple ETFs, and
 its market capitalization is periodically published by index providers.
 
 ## Getting started
-Git clone the repository and install pyyaml. Requires Python 3.
+Install pyyaml and git clone the repository. Requires Python 3.6.
 
 ```sh
-git clone git@github.com:chriswilker/market_proportions.git
 pip3 install pyyaml
+git clone git@github.com:chriswilker/market-proportions.git
+cd market-proportions
 ```
 
 ## Use
@@ -21,7 +21,7 @@ proportions of the assets in the portfolio will be displayed. In this
 case, the relative sizes of the US and non-US stock markets are
 displayed.
 
-```sh
+```console
 $ python3 proportions.py example-portfolios/world-stock-market.yml
 us stocks: 61.91%
 non-us stocks: 38.09%
