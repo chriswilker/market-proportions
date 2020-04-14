@@ -3,6 +3,7 @@ import yaml
 from typing import Dict
 import urllib.request
 import json
+import dateutil.parser
 
 
 def main() -> None:
@@ -52,8 +53,22 @@ def market_caps(portfolio: Dict) -> Dict:
 
 def market_cap(asset: Dict) -> float:
     return asset["market cap"] * (
-        current_price(asset["ticker"]) / asset["close price"]
+        current_price(asset["ticker"])
+        / close_price(asset["ticker"], asset["date"])
     )
+
+
+def close_price(ticker: str, date: str) -> float:
+    dt = dateutil.parser.parse(date)
+    start_unix_ts = int(dt.timestamp())
+    # for some reason it works when 6h 30m is added, but not with anything less
+    end_unix_ts = start_unix_ts + 23400
+    url = f"https://query1.finance.yahoo.com/v7/finance/download/{ticker}?period1={start_unix_ts}&period2={end_unix_ts}&interval=1d&events=history"
+    csv_text = urllib.request.urlopen(url).read().decode("utf8")
+    for line in csv_text.splitlines():
+        if date in line:
+            close_price = float(line.split(",")[4])
+    return close_price
 
 
 def current_price(ticker: str) -> float:
