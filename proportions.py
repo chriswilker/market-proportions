@@ -5,8 +5,13 @@ import urllib.request
 import json
 
 
-def main():
-    parser = argparse.ArgumentParser()
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="""Estimate the current market proportions of assets in a
+        portfolio. See https://github.com/chriswilker/market_proportions for
+        more information.
+        """
+    )
     parser.add_argument(
         "portfolio_file", type=str, help="yaml file representing a portfolio"
     )
