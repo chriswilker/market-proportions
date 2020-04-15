@@ -28,32 +28,31 @@ def main() -> None:
 def output(portfolio: Dict) -> str:
     mps = market_proportions(portfolio)
     out = ""
-    for asset, mp in mps.items():
-        out += f"\"{asset}\": {mp:.4f}\n"
+    for ticker, mp in mps.items():
+        out += f'"{ticker}": {mp:.4f}\n'
     return out
 
 
 def market_proportions(portfolio: Dict) -> Dict:
     mcs = market_caps(portfolio)
-    sum_mcs = sum([mcs[asset] for asset in mcs.keys()])
+    sum_mcs = sum([mcs[ticker] for ticker in mcs.keys()])
     mps = {}
-    for asset in mcs.keys():
-        mps[asset] = mcs[asset] / sum_mcs
+    for ticker in mcs.keys():
+        mps[ticker] = mcs[ticker] / sum_mcs
     return mps
 
 
 def market_caps(portfolio: Dict) -> Dict:
     mcs = {}
-    for asset in portfolio.keys():
-        mcs[asset] = market_cap(portfolio[asset])
+    for ticker in portfolio.keys():
+        mcs[ticker] = market_cap(
+            ticker, portfolio[ticker]["date"], portfolio[ticker]["market cap"]
+        )
     return mcs
 
 
-def market_cap(asset: Dict) -> float:
-    return asset["market cap"] * (
-        current_price(asset["ticker"])
-        / close_price(asset["ticker"], asset["date"])
-    )
+def market_cap(ticker: str, date: str, market_cap: int) -> float:
+    return market_cap * (current_price(ticker) / close_price(ticker, date))
 
 
 def close_price(ticker: str, date: str) -> float:

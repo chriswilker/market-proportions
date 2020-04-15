@@ -1,8 +1,6 @@
-"us stocks":
+"VTSAX":
   "date": "2017-07-31"
   "market cap": 25089806
-  "ticker": "VTSAX"
-"non-us stocks":
+"VTIAX":
   "date": "2017-07-31"
   "market cap": 20585441
-  "ticker": "VTIAX"

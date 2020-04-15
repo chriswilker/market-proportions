@@ -22,12 +22,12 @@ cd market-proportions
 Give the path to a portfolio yaml file as an argument. The market
 proportions of the assets in the portfolio will be displayed. In this
 case, the proportions of the world stock market taken up by the the US
-and non-US stock markets are displayed.
+and non-US stock markets, respectively, are displayed.
 
 ```console
 $ python3 proportions.py example-portfolios/world-stock-market.yml
-"us stocks": 0.6191
-"non-us stocks": 0.3809
+"VTSAX": 0.6191
+"VTIAX": 0.3809
 ```
 
 Run `python3 proportions.py -h` to get help.
@@ -36,18 +36,17 @@ Run `python3 proportions.py -h` to get help.
 The yaml file should be structured like this:
 
 ```yaml
-"us stocks":
+"VTSAX":
   "date": "2017-07-31"
   "market cap": 25089806
-  "ticker": "VTSAX"
-"non-us stocks":
+"VTIAX":
   "date": "2017-07-31"
   "market cap": 20585441
-  "ticker": "VTIAX"
 ```
 
-You can give the assets whatever names you want. In this case, the
-assets are named "us stocks" and "non-us stocks".
+Each asset is represented by the ticker symbol of the stock, ETF, etc.
+that tracks the asset. For example, the ticker VTSAX represents the
+Vanguard Total Stock Market Index ETF, which tracks the US stock market.
 
 "date" is the date at which the market capitalization was measured. It
 should be formatted in ISO 8601 format (YYYY-MM-DD).
@@ -55,7 +54,3 @@ should be formatted in ISO 8601 format (YYYY-MM-DD).
 "market cap" is the market capitalization of the asset at the date.
 The units don't matter, as long as they are consistent with the units
 for the market capitalizations of your other assets.
-
-"ticker" is the ticker of the stock or ETF that tracks the asset.
-For example, the ticker VTSAX represents the Vanguard Total Stock
-Market Index ETF, which tracks the US stock market.
