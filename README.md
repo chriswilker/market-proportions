@@ -23,8 +23,8 @@ displayed.
 
 ```console
 $ python3 proportions.py example-portfolios/world-stock-market.yml
-us stocks: 61.91%
-non-us stocks: 38.09%
+us stocks: 0.6191
+non-us stocks: 0.3809
 ```
 
 Run `python3 proportions.py -h` to get help.
