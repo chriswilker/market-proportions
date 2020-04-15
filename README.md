@@ -1,7 +1,10 @@
 ## Introduction
 This is a script that estimates the current market proportions of assets
-in a portfolio. These assets need to be tracked by stocks or ETFs and to
-have a known market capitalization at some prior date.
+in a portfolio. For example, if I have a portfolio with assets A and B,
+and asset A has a market capitalization three times greater than that of
+asset B, the market proportions would be 0.75 for A and 0.25 for B.
+These assets need to be tracked by stocks or ETFs and to have a known
+market capitalization at some prior date.
 
 For example, the total US stock market is tracked by multiple ETFs, and
 its market capitalization is periodically published by index providers.
@@ -18,8 +21,8 @@ cd market-proportions
 ## Use
 Give the path to a portfolio yaml file as an argument. The market
 proportions of the assets in the portfolio will be displayed. In this
-case, the relative sizes of the US and non-US stock markets are
-displayed.
+case, the proportions of the world stock market taken up by the the US
+and non-US stock markets are displayed.
 
 ```console
 $ python3 proportions.py example-portfolios/world-stock-market.yml
