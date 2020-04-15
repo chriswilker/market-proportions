@@ -29,7 +29,7 @@ def output(portfolio: Dict) -> str:
     mps = market_proportions(portfolio)
     out = ""
     for asset, mp in mps.items():
-        out += f"{asset}: {mp:.4f}\n"
+        out += f"\"{asset}\": {mp:.4f}\n"
     return out
 
 
